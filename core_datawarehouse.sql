@@ -56,8 +56,6 @@ CREATE TABLE Mitarbeiter (
 CREATE TABLE Adresse (
   AdressID SERIAL PRIMARY KEY,
   Hausnummer INT,
-  KundenID INT NOT NULL,
-  MitarbeiterID INT NOT NULL,
   BürgeID INT NOT NULL,
   Straße VARCHAR (50),
   Stadt VARCHAR (50),
