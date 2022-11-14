@@ -83,3 +83,26 @@ telefonnummer INT,
 gueltig_ab TIMESTAMP,
 gueltig_bis TIMESTAMP
 );
+
+CREATE TABLE Kreditverantwortlicher (
+      KVID SERIAL NOT NULL PRIMARY KEY,
+    KreditID INTEGER NOT NULL REFERENCES Kredit(KreditID),
+    MitarbeiterID INTEGER NOT NULL REFERENCES Mitarbeiter(MitarbeiterID),
+    VertriebspartnerID INTEGER REFERENCES Vertriebspartner(VPartnerID),
+);
+
+CREATE TABLE Persons (
+    RückzahlungsID SERIAL NOT NULL PRIMARY KEY,
+      KreditID INTEGER NOT NULL REFERENCES Kredit(KreditID),
+    Tilgungsanteil FLOAT NOT NULL,
+    Zisnanteil FLOAT NOT NULL,
+    Datum DATE
+      Gueltig_ab TIMESTAMP NOT NULL,
+      Gueltig_bis TIMESTAMP NOT NULL,
+);
+
+CREATE TABLE buergt (
+    ID SERIAL NOT NULL PRIMARY KEY,
+    KundenID INTEGER NOT NULL REFERENCES Kunde(KundenID),
+      BuergenID INTEGER NOT NULL REFERENCES Buergen(BuergenID)
+);
